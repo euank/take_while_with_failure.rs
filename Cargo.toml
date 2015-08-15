@@ -1,5 +1,12 @@
 [package]
 name = "take_while_with_failure"
-description = "Adds a 'take_while_with_failure' iterator that behaves identically to 'take_while', but also includes the first element that fails."
 version = "0.1.0"
+description = """
+Adds a `take_while_with_failure` iterator that behaves identically to
+`take_while`, but also includes the first element that fails.
+"""
+repository = "https://github.com/euank/take_while_with_failure.rs"
+homepage = "https://github.com/euank/take_while_with_failure.rs"
+readme = "README.md"
+license = "Apache-2.0"
 authors = ["euank <euank@euank.com>"]
