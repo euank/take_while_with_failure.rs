@@ -9,6 +9,26 @@ elements will be yielded.
 This can be useful if, for example, you would like to read a stream until the first error
 and then stop processing immediately without losing the error.
 
+## But what about iter-tools fold\_results?
+
+Right after implementing this I found out that that package exists. Oops.
+
+I highly recommend using itertools'
+[fold\_results](https://bluss.github.io/rust-itertools/doc/itertools/trait.Itertools.html#method.fold_results)
+if it is relevant.
+
+## Naming
+
+I couldn't think of a better one. If you can, feel free to pull request.
+
+## This is dumb
+
+Aww, shucks, thanks. You too :heart:
+
+Really though, I'm a neophyte with rust and it's possible I overlooked somethin when I made this and it's in fact utterly dumb and useless. Open an issue and tell me!
+
+Oh, and I do know I could have used a for loop to replace this fairly trivially. That doesn't count :grin:
+
 ## Example
 
 ```
