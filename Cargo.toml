@@ -1,0 +1,5 @@
+[package]
+name = "take_while_with_failure"
+description = "Adds a 'take_while_with_failure' iterator that behaves identically to 'take_while', but also includes the first element that fails."
+version = "0.1.0"
+authors = ["euank <euank@euank.com>"]
