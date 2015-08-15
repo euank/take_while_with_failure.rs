@@ -1,4 +1,4 @@
 [root]
-name = "take_while_inclusive"
+name = "take_while_with_failure"
 version = "0.1.0"
 

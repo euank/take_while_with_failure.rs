@@ -40,7 +40,8 @@ where P: FnMut(&I::Item) -> bool {
 }
 
 
-impl<'a, I: Iterator + ?Sized> TakeWhileWithFailureIterator for &'a mut I {
+impl<'a, I: Iterator + ?Sized> TakeWhileWithFailureIterator for I {
+
     /// Creates an iterator that yields elements as long as the predicate returns true.
     /// Additionally, it includes the first element that returns false, after which no further
     /// elements will be yielded.
@@ -51,11 +52,21 @@ impl<'a, I: Iterator + ?Sized> TakeWhileWithFailureIterator for &'a mut I {
     /// # Examples
     ///
     /// ```
+    /// use take_while_with_failure::TakeWhileWithFailureIterator;
+    ///
+    /// let a = [1,2,3,4];
+    /// let filtered: Vec<&i64> = a.iter().take_while_with_failure(|&x| *x < 2).collect();
+    /// assert_eq!(filtered, [&1, &2]);
+    /// ```
+    ///
+    /// ```
+    /// use take_while_with_failure::TakeWhileWithFailureIterator;
+    ///
     /// let a = [1, 2, 3, 4, 5];
-    /// let mut it = a.iter().take_while_with_failure(|&a| *a < 2);
-    /// assert_eq!(it.next(), Some(&1));
-    /// assert_eq!(it.next(), Some(&2));
-    /// assert!(it.next().is_none());
+    /// let mut taken = a.iter().take_while_with_failure(|&x| *x < 2);
+    /// assert_eq!(taken.next(), Some(&1));
+    /// assert_eq!(taken.next(), Some(&2));
+    /// assert!(taken.next().is_none());
     /// ```
     fn take_while_with_failure<P>(self, predicate: P) -> TakeWhileWithFailure<Self, P> where Self: Sized, P: FnMut(&Self::Item) -> bool {
         TakeWhileWithFailure{iter: self, flag: false, predicate: predicate}
